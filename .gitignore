@@ -1,0 +1,4 @@
+*.log
+cookies.txt
+*.pyc
+settings.py
