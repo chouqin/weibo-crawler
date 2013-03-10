@@ -1,10 +1,5 @@
 #!/usr/bin/env python
 #coding=utf-8
-'''
-Created on 2012-10-23
-
-@author: Chine
-'''
 
 # added for datetime.strptime is not thread-safe
 #from threading import Lock

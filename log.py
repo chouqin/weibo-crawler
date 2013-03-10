@@ -1,10 +1,5 @@
 #!/usr/bin/env python
 #coding=utf-8
-'''
-Created on 2012-11-12
-
-@author: Chine
-'''
 
 import logging
 import os
