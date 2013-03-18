@@ -14,6 +14,7 @@ import random
 from parser import (
     CnInfoParser,
     CnRelationshipParser,
+    CnWeiboParser,
     check_page_right,
 )
 from storage import FileStorage
@@ -89,6 +90,10 @@ class UserCrawler():
     def follow_link(self):
         return 'http://weibo.cn/%s/follow' % self.user
 
+    @property
+    def weibo_link(self):
+        return 'http://weibo.cn/u/%s' % self.user
+
     def _crawl(self, url, parser_cls):
         def start(url):
             html = self._fetch(url)
@@ -127,6 +132,11 @@ class UserCrawler():
             #if self.span:
                 #time.sleep(self._get_random_sec())
 
+    def crawl_weibo(self):
+        url = self.weibo_link
+        while url is not None:
+            url = self._crawl(url, CnWeiboParser)
+
     def crawl(self):
         if self.error is True:
             return
@@ -135,6 +145,8 @@ class UserCrawler():
         self.crawl_follow()
         logger.info("start to fetch %s's info" % self.user)
         self.crawl_info()
+        logger.info("start to fetch %s's weibo" % self.user)
+        self.crawl_weibo()
 
         # Add to completes when finished
         self.storage.complete()
