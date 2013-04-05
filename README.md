@@ -1,7 +1,8 @@
 ##Weibo Crawler
 
 this is a weibo crawler to crawl weibo user's info and relationship,
-I only need these information for my project.
+I only need these information for my project. 
+This repository is inspired by [chineking](https://bitbucket.org/chineking/weibocrawler/wiki/Home).
 
 ###To use this repository
 
